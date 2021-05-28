@@ -1,0 +1,12 @@
+FROM node:10-alpine as build-step
+
+WORKDIR /app
+
+COPY package.json /app
+COPY yarn.lock /app 
+
+RUN npm install
+
+COPY . /app
+
+CMD ["yarn", "start"]
